@@ -4,9 +4,11 @@ class NewsletterMailer < ApplicationMailer
   #
   #   en.newsletter_mailer.email_blast.subject
   #
-  def email_blast
+  def email_blast(user = User.first, name = Newsletter.first.name)
     @greeting = "Hi"
+    @user = user
+    @name = name
 
-    mail to: "to@example.org"
+    mail to: user.email
   end
 end

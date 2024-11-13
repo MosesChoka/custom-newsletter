@@ -41,10 +41,10 @@ class NewsletterController < ApplicationController
     @users = User.subscribed(@name)
     puts "Sending #{@name} newsletter to #{@users.count} users"
     @users.each do |user|
-      puts "Sending email to #{@user.email}"
+      puts "Sending email to #{user.email}"
 
       # use action_mailer to send the email
-      UserMailer.with(user:).email_blast(user, @name).deliver_later
+      NewsletterMailer.with(user:).email_blast(user, @name).deliver_later
     end
 
     redirect_to root_path
