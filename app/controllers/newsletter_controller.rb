@@ -26,7 +26,7 @@ class NewsletterController < ApplicationController
 
   def manage
     if current_user.subscribed?(@name)
-      current_user.unsubscribed(@name)
+      current_user.unsubscribe(@name)
     else
       current_user.subscribe(@name)
     end
